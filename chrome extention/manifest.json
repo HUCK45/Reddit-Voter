@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+
+  "name": "Reddit Voter",
+  "description": "Voting on Reddit never been easier!",
+  "version": "1.0",
+  "icons": { "16": "finishedLogo.png",
+		   "48": "finishedLogo.png",
+		  "128": "finishedLogo.png" },
+  "permissions": [
+	"activeTab",
+	"*://*.reddit.com/",
+	"storage",
+	"tabs"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://www.reddit.com/*"],
+      "js": ["runOnReddit.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["voterEventPage.js"],
+    "persistent": true
+  }
+  
+}
